@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Add Material CSS, replace Bootstrap CSS -->
+    <link href="assets/css/material.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <title>Formulario de Preferencias de Asignaturas</title>
+    <style>
+        .error {
+            color: red;
+            display: none;
+        }
+        .erroro {
+            color: red;
+            display: none;
+        }
+        .mensaje {
+            color: blue;
+            display: block;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="assets/js/material.min.js"></script>
+
+    <script>
+        function validateForm() {
+	    let e2=calcular_distintos();
+	    return (e2);
+	}
+
+
+	function calcular_distintos(){
+            let opt = [document.getElementById("opt1").value,document.getElementById("opt2").value,document.getElementById("opt3").value,document.getElementById("opt4").value,document.getElementById("opt5").value,document.getElementById("opt6").value,document.getElementById("opt7").value];
+
+            let error = document.getElementById("error");
+
+            let distintos=true;
+
+	    let i=0;
+	    let j=0;
+
+	    for(i=0;((i<opt.length-1) && (distintos==true));i++){
+		for(j=i+1;((j<opt.length) && (distintos==true));j++){
+		    distintos=(opt[i]!=opt[j]);
+		}
+	    }
+
+	    if (distintos==false) {
+                error.style.display = "block";
+                return false;
+            } else {
+                error.style.display = "none";
+                return true;
+            }
+        }
+    </script>
+</head>
+<body id="cuerpo">
+    <form name="my-google-sheet" id="my-google-sheet"  method="POST" onsubmit="return validateForm()">
+	<div id="encabezado" style="display:flex;align-items:center;">
+	    <img src="LOGO_IES_ALCARIA.png" width="10%">
+	    <h2 style="flex-grow:1;display:inline-block;">PREFERENCIA DE MATERIAS OPTATIVAS PARA 3ºESO DIVERSIFICACIÓN</h2>
+	</div>
+        <br>
+	<fieldset>
+            <legend>INTRODUCE TU CORREO DE G.EDUCAAND.ES</legend>
+	    <br>
+            <label for="email">Correo electrónico de @g.educaand.es:</label>
+            <input type="email" id="email" name="Email" size="25" required><br><br>
+        </fieldset><br>
+
+	<P><B>RECUERDA:</B> Las materias comunes obligatorias en 3º ESO DIVERSIFICACIÓN son Educación Física, Educación Plástica, Visual y Audiovisual, Tecnología y Digitalización, Ámbito Científico-Tecnológico (Biología y Geología, Física y Química y Matemáticas) y Ámbito Lingüistico y Social (Geografía e Historia, Lengua Castellana y Literatura e Inglés -como 1ª Lengua Extranjera-).</P>
+
+	<br><a href="Información sobre optativas 3ºESO.pdf" target="_blank">Ver información sobre las asignaturas optativas</a><br><br>
+
+        <br>
+
+        <fieldset>
+            <legend>OPTATIVAS PROPIAS DE LA COMUNIDAD AUTÓNOMA</legend>
+	    <br><label id="mensaje" class="mensaje">A elegir 2, pero debes valorar todas las asignaturas de tal forma que le asignes un 1 a la asignatura que más te guste, un 2 a la segunda que más te guste, etc...</label>
+            <br>
+   	    <label for="opt1">Computación y Robótica:</label>
+            <select id="opt1" name="Computación y Robótica" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select><br>
+
+            <label for="opt2">Cultura clásica:</label>
+            <select id="opt2" name="Cultura clásica" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                 <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+           </select><br>
+
+            <label for="opt3">Segunda Lengua Extranjera (Francés):</label>
+            <select id="opt3" name="Segunda Lengua Extranjera (Francés)" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select><br>
+
+            <label for="opt4">Cultura del Flamenco:</label>
+            <select id="opt4" name="Cultura del Flamenco" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select><br>
+
+            <label for="opt5">Oratoria y Debate:</label>
+            <select id="opt5" name="Oratoria y Debate" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select><br>
+
+            <label for="opt6">Taller de Biología:</label>
+            <select id="opt6" name="Taller de Biología" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select><br>
+
+            <label for="opt7">Taller de Artes Plásticas y Diseño:</label>
+            <select id="opt7" name="Taller de Artes Plásticas y Diseño" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select><br>
+
+            <span id="error" class="error">No puedes repetir números en estas asignaturas.</span>
+        </fieldset><br>
+
+        <br><label for="religion">SELECCIONA UNA DE ESTAS MATERIAS:</label>
+        <select id="religion" name="Religión/Alternativa" required>
+            <option value="Religión">Religión</option>
+            <option value="Atención_Educativa">Atención educativa</option>
+        </select><br><br><br>
+    	<button type="submit" class="btn btn-primary btn-sm">Enviar respuestas</button>
+    </form>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwtcl89T1nGLP4D4c0nhemG-B9nRDA9zmDEkPnEa-auMrvxih8i8gpYhgmmndhew_4uxQ/exec'
+        const form = document.forms['my-google-sheet']
+
+        form.addEventListener('submit', e => {
+	  if (validateForm()){
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response =>
+               
+            console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+
+	    document.getElementById("my-google-sheet").reset();
+	    document.getElementById("cuerpo").innerHTML = "";
+	    document.getElementById("cuerpo").innerText = "RESPUESTA ENVIADA, MUCHAS GRACIAS.";
+          }
+        }) 
+    </script>
+
+</body>
+</html>
